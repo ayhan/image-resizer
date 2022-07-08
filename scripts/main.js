@@ -1,51 +1,54 @@
-const dropArea = document.getElementById("dropSection")
+const app = {
+    selector: {
+        dropArea: document.getElementById("dropSection"),
+    },
+    actions: {
+        highlightAdd: function () {
+            app.selector.dropArea.classList.add('highlight')
+        },
+        highlightRemove: function () {
+            app.selector.dropArea.classList.remove('highlight')
+        },
+        handleFiles: function (files) {
+            files = [...files]
+            files.forEach(app.actions.previewFile)
+        },
+        handleDrop: function (e) {
+            var dt = e.dataTransfer
+            var files = dt.files
 
-;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, preventDefaults, false)   
-  document.body.addEventListener(eventName, preventDefaults, false)
-})
-
-;['dragenter', 'dragover'].forEach(eventName => {
-  dropArea.addEventListener(eventName, highlightAdd, false)
-})
-
-;['dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, highlightRemove, false)
-  })
-
-dropArea.addEventListener('drop', handleDrop, false)
-
-function preventDefaults (e) {
-  e.preventDefault()
-  e.stopPropagation()
+            app.actions.handleFiles(files)
+        },
+        previewFile: function (file) {
+            let reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = function () {
+                let img = document.createElement('img')
+                img.src = reader.result
+                document.getElementById('uploadedImage').appendChild(img)
+            }
+        },
+        preventDefaults: function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+    },
+    init: function () {
+        app.selector.dropArea.addEventListener('drop', app.actions.handleDrop, false)
+    }
 }
 
-function highlightAdd(e) {
-  dropArea.classList.add('highlight')
-}
+    ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        app.selector.dropArea.addEventListener(eventName, app.actions.preventDefaults, false)
+        document.body.addEventListener(eventName, app.actions.preventDefaults, false)
+    })
 
-function highlightRemove(e) {
-    dropArea.classList.remove('highlight')
-  }
+    ;['dragenter', 'dragover'].forEach(eventName => {
+        app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
+    })
 
-function handleDrop(e) {
-  var dt = e.dataTransfer
-  var files = dt.files
+    ;['dragleave', 'drop'].forEach(eventName => {
+        app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
+    })
 
-  handleFiles(files)
-}
-
-function handleFiles(files) {
-  files = [...files]
-  files.forEach(previewFile)
-}
-
-function previewFile(file) {
-  let reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onloadend = function() {
-    let img = document.createElement('img')
-    img.src = reader.result
-    document.getElementById('uploadedImage').appendChild(img)
-  }
-}
+app.init();

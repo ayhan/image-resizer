@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <form class="file-form" id="dropSection">
-            <input id="fileInput" type="file" multiple accept="image/*" onchange="handleFiles(this.files)">
+            <input id="fileInput" type="file" multiple accept="image/*" onchange="app.actions.handleFiles(this.files)">
             <label class="button" for="fileInput">
                 Drops file to attach, or click and select
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="none" viewBox="0 0 24 20"
