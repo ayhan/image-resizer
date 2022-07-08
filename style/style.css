@@ -12,13 +12,12 @@
     position: relative;
     padding: 40px;
     border: 2px dashed #ccc;
-    border-radius: 10px;
   }
   .file-form:hover{
-    border-color: purple;
+    border-color: #454545;
   }
   .file-form.highlight {
-    border-color: purple;
+    border-color: #454545;
   }
   .button {
     position: absolute;
@@ -29,14 +28,16 @@
     cursor: pointer;
     text-align: center;
     padding-top: 30px;
+    font-weight: bold;
+    color: #454545;
   }
   #fileInput {
     display: none;
   }
-  #uploaded-image {
+  #uploadedImage {
     margin-top: 10px;
   }
-  #uploaded-image img {
+  #uploadedImage img {
     width: 150px;
     margin-bottom: 10px;
     margin-right: 10px;

@@ -46,6 +46,6 @@ function previewFile(file) {
   reader.onloadend = function() {
     let img = document.createElement('img')
     img.src = reader.result
-    document.getElementById('uploaded-image').appendChild(img)
+    document.getElementById('uploadedImage').appendChild(img)
   }
 }
