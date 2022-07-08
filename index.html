@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="file-form" id="dropSection">
+            <input id="fileInput" type="file" multiple accept="image/*" onchange="handleFiles(this.files)">
+            <label class="button" for="fileInput">Drops file to attach, or click and select</label>
+        </form>
+        <div id="uploaded-image"></div>
+    </div>
+    </div>
+    
+</body>
+<script src="scripts/main.js"></script>
+</html>

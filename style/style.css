@@ -1,0 +1,44 @@
+* {
+    font-family: sans-serif;
+  }
+  .container {
+    width: 960px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #ddd;
+  }
+  .file-form{
+    position: relative;
+    padding: 40px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+  }
+  .file-form:hover{
+    border-color: purple;
+  }
+  .file-form.highlight {
+    border-color: purple;
+  }
+  .button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 30px;
+  }
+  #fileInput {
+    display: none;
+  }
+  #uploaded-image {
+    margin-top: 10px;
+  }
+  #uploaded-image img {
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
