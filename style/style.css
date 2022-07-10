@@ -1,45 +1,90 @@
 * {
-    font-family: sans-serif;
-  }
-  .container {
-    width: 960px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background: #ddd;
-  }
-  .file-form{
-    position: relative;
-    padding: 40px;
-    border: 2px dashed #ccc;
-  }
-  .file-form:hover{
-    border-color: #454545;
-  }
-  .file-form.highlight {
-    border-color: #454545;
-  }
-  .button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    cursor: pointer;
-    text-align: center;
-    padding-top: 30px;
-    font-weight: bold;
-    color: #454545;
-  }
-  #fileInput {
-    display: none;
-  }
-  #uploadedImage {
-    margin-top: 10px;
-  }
-  #uploadedImage img {
-    width: 150px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    vertical-align: middle;
-  }
+  font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container {
+  width: 970px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #ddd;
+}
+
+.file-form {
+  position: relative;
+  padding: 40px;
+  border: 2px dashed #ccc;
+}
+
+.file-form:hover {
+  border-color: #454545;
+}
+
+.file-form.highlight {
+  border-color: #454545;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 30px;
+  font-weight: bold;
+  color: #454545;
+}
+
+#fileInput {
+  display: none;
+}
+
+#uploadedImage {
+  margin-top: 10px;
+  max-height: 750px;
+  overflow-y: auto;
+}
+
+#uploadedImage img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.d-none {
+  display: none !important;
+}
+
+#actionContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#actionContainer input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+}
