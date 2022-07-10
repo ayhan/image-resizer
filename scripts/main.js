@@ -2,7 +2,9 @@ const app = {
     selector: {
         dropArea: document.getElementById("dropSection"),
         actionContainer: document.getElementById("actionContainer"),
-        uploadedImages: document.getElementById("uploadedImage")
+        uploadedImages: document.getElementById("uploadedImage"),
+        widthValue: document.getElementById("widthValue"),
+        heightValue: document.getElementById("heightValue")
     },
     actions: {
         highlightAdd: function () {
@@ -67,8 +69,11 @@ const app = {
         },
         execute: function() {
             var images = Array.from(app.selector.uploadedImages.querySelectorAll('img'));
+            var width = app.selector.widthValue.value | 400;
+            var height = app.selector.heightValue.value | 400;
+
             images.map((x) => {
-                app.actions.resizeImages(x.getAttribute('src'), 100, 100).then((result) => {
+                app.actions.resizeImages(x.getAttribute('src'), width, height).then((result) => {
                     console.log(result);
                 });
             })
