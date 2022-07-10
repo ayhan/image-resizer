@@ -69,8 +69,8 @@ const app = {
         },
         execute: function() {
             var images = Array.from(app.selector.uploadedImages.querySelectorAll('img'));
-            var width = app.selector.widthValue.value | 400;
-            var height = app.selector.heightValue.value | 400;
+            var width = app.selector.widthValue.value || 400;
+            var height = app.selector.heightValue.value || 400;
 
             images.map((x) => {
                 app.actions.resizeImages(x.getAttribute('src'), width, height).then((result) => {
