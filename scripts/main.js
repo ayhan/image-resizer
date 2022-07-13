@@ -36,6 +36,10 @@ const app = {
             scope.parentNode.remove();
             app.selector.uploadedImages.innerHTML == '' && app.selector.actionContainer.classList.add('d-none');
         },
+        clearAll: function() {
+            app.selector.uploadedImages.innerHTML = '';
+            app.selector.actionContainer.classList.add('d-none')
+        },
         preventDefaults: function (e) {
             e.preventDefault()
             e.stopPropagation()

@@ -64,13 +64,7 @@
   max-height: 750px;
   overflow-y: auto;
   display: flex;
-}
-
-#uploadedImage img {
-  width: 150px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  vertical-align: middle;
+  flex-wrap: wrap;
 }
 
 .d-none {
@@ -79,7 +73,7 @@
 
 #actionContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -91,7 +85,6 @@
 }
 
 #actionContainer button {
-  background-color: #aaa;
   border: none;
   border-radius: 5px;
   font-size: 12px;
@@ -99,29 +92,59 @@
   color: white;
   padding: 10px;
 }
-#actionContainer button:active {
+
+#executeBtn{
+  background-color: #aaa;
+}
+
+#clearAllBtn{
+  background-color: red;
+}
+
+#executeBtn:active {
   background-color: #454545;
   transform: scale(1.1);
 }
-#actionContainer button:hover {
+#executeBtn:hover {
   background-color: #454545;
 }
+
+#clearAllBtn:active {
+  background-color: rebeccapurple;
+  transform: scale(1.1);
+}
+
+#clearAllBtn:hover {
+  background-color: rebeccapurple;
+}
+
+
+
 .image-content {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid;
+  margin: 5px;
+  margin: 10px;
+  padding: 5px;
 }
+
 .image-wrapper {
   position: relative;
 }
+
 .image-wrapper img {
   transition: 1s;
+  width: 150px;
 }
+
 .image-wrapper:hover img {
   filter: blur(2px);
 }
+
 .image-wrapper span {
   display: none;
   position: absolute;
@@ -136,7 +159,8 @@
   border-radius: 50%;
   line-height: 1rem;
 }
-.image-wrapper:hover span{
+
+.image-wrapper:hover span {
   display: block;
 }
 
@@ -147,8 +171,11 @@
   text-decoration: none;
   border-radius: 5px;
   animation: 1s;
-  color: #454545
+  color: #454545;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
+
 .download-button:hover {
   color: #fff;
   background: #6ab04c;
