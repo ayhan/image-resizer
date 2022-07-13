@@ -10,10 +10,11 @@
 </head>
 
 <body>
+    <h1 class="title">Image Resizer</h1>
     <div class="container">
         <form class="file-form" id="dropSection">
             <input id="fileInput" type="file" multiple accept="image/*" onchange="app.actions.handleFiles(this.files)">
-            <label class="button" for="fileInput">
+            <label class="drop-content" for="fileInput">
                 Drops file to attach, or click and select
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="none" viewBox="0 0 24 20"
                     stroke="currentColor" stroke-width="2">
@@ -24,8 +25,8 @@
         </form>
         <div id="actionContainer" class="d-none">
             <div>
-                <input type="text" id="widthValue" placeholder="ex: 400" />
-                <input type="text" id="heightValue" placeholder="ex: 400" />
+                <input type="text" id="widthValue" placeholder="400" />
+                <input type="text" id="heightValue" placeholder="400" />
                 <button id="executeBtn" onclick="app.actions.execute()">Execute</button>
             </div>
             <div>

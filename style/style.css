@@ -38,7 +38,7 @@
 
 .container {
   width: 920px;
-  margin: 3rem auto;
+  margin: auto;
   padding: 1.25rem;
   border-radius: 10px;
   background: var(--clouds);
@@ -58,7 +58,7 @@
   border-color: var(--asbestos);
 }
 
-.button {
+.drop-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -140,8 +140,6 @@
   background-color: var(--pomegranate);
 }
 
-
-
 .image-content {
   cursor: pointer;
   display: flex;
@@ -201,4 +199,14 @@
 .download-button:hover {
   background-color: var(--nephritis);
   color: var(--clouds);
+}
+
+.download-button:active {
+  transform: scale(1.1);
+}
+
+.title{
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--wetAsphalt);
 }
