@@ -1,3 +1,19 @@
+:root{
+  --clouds: #ecf0f1;
+  --silver: #bdc3c7;
+  --concrete: #95a5a6;
+  --asbestos: #7f8c8d;
+  
+  --wetAsphalt: #34495e;
+  --midnightBlue: #2c3e50;
+
+  --alizarin: #e74c3c;
+  --pomegranate: #c0392b;
+
+  --emerald: #2ecc71;
+  --nephritis: #27ae60;
+}
+
 * {
   font-family: sans-serif;
 }
@@ -7,39 +23,39 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--silver);
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--wetAsphalt);
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--midnightBlue);
 }
 
 .container {
-  width: 970px;
+  width: 910px;
   margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
-  background: #ddd;
+  background: var(--clouds);
 }
 
 .file-form {
   position: relative;
   padding: 40px;
-  border: 2px dashed #ccc;
+  border: 2px dashed var(--silver);
 }
 
 .file-form:hover {
-  border-color: #454545;
+  border-color: var(--asbestos);
 }
 
 .file-form.highlight {
-  border-color: #454545;
+  border-color: var(--asbestos);
 }
 
 .button {
@@ -52,7 +68,7 @@
   text-align: center;
   padding-top: 30px;
   font-weight: bold;
-  color: #454545;
+  color: var(--wetAsphalt);
 }
 
 #fileInput {
@@ -80,8 +96,13 @@
 #actionContainer input {
   padding: 10px;
   border: none;
-  outline: none;
   margin-right: 5px;
+  color: var(--midnightBlue);
+  border-radius: 5px;
+}
+#actionContainer input:focus {
+  outline: none !important;
+  box-shadow: 0 1px 5px var(--wetAsphalt);
 }
 
 #actionContainer button {
@@ -89,33 +110,34 @@
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
-  color: white;
+  color: var(--clouds);
   padding: 10px;
 }
 
 #executeBtn{
-  background-color: #aaa;
-}
-
-#clearAllBtn{
-  background-color: red;
-}
-
-#executeBtn:active {
-  background-color: #454545;
-  transform: scale(1.1);
+  background-color: var(--wetAsphalt);
 }
 #executeBtn:hover {
-  background-color: #454545;
+  background-color: var(--midnightBlue);
+}
+#executeBtn:active {
+  background-color: var(--midnightBlue);
+  transform: scale(1.1);
+}
+
+
+#clearAllBtn{
+  color: var(--clouds);
+  background-color: var(--alizarin);
 }
 
 #clearAllBtn:active {
-  background-color: rebeccapurple;
+  background-color: var(--pomegranate);
   transform: scale(1.1);
 }
 
 #clearAllBtn:hover {
-  background-color: rebeccapurple;
+  background-color: var(--pomegranate);
 }
 
 
@@ -126,7 +148,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid;
+  border: 1px dashed var(--silver);
+  border-radius: 5px;
   margin: 5px;
   margin: 10px;
   padding: 5px;
@@ -165,18 +188,18 @@
 }
 
 .download-button {
-  background-color: #badc58;
+  background-color: var(--emerald);
   padding: 10px;
   font-size: 0.75rem;
   text-decoration: none;
   border-radius: 5px;
   animation: 1s;
-  color: #454545;
+  color: var(--clouds);
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 }
 
 .download-button:hover {
-  color: #fff;
-  background: #6ab04c;
+  background-color: var(--nephritis);
+  color: var(--clouds);
 }

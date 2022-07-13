@@ -33,7 +33,7 @@ const app = {
             }
         },
         imageDelete: function (scope) {
-            scope.parentNode.remove();
+            scope.parentNode.parentNode.remove();
             app.selector.uploadedImages.innerHTML == '' && app.selector.actionContainer.classList.add('d-none');
         },
         clearAll: function() {
