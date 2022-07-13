@@ -19,17 +19,17 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: .5rem;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--silver);
-  border-radius: 12px;
+  border-radius: .75rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--wetAsphalt);
-  border-radius: 12px;
+  border-radius: .75rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -37,16 +37,16 @@
 }
 
 .container {
-  width: 910px;
-  margin: 50px auto;
-  padding: 20px;
+  width: 920px;
+  margin: 3rem auto;
+  padding: 1.25rem;
   border-radius: 10px;
   background: var(--clouds);
 }
 
 .file-form {
   position: relative;
-  padding: 40px;
+  padding: 2.5rem;
   border: 2px dashed var(--silver);
 }
 
@@ -66,7 +66,7 @@
   bottom: 0;
   cursor: pointer;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 2rem;
   font-weight: bold;
   color: var(--wetAsphalt);
 }
@@ -76,7 +76,7 @@
 }
 
 #uploadedImage {
-  margin-top: 10px;
+  margin-top: 1.25rem;
   max-height: 750px;
   overflow-y: auto;
   display: flex;
@@ -90,15 +90,15 @@
 #actionContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin: 1.25rem 1rem;
 }
 
 #actionContainer input {
-  padding: 10px;
+  padding: .75rem;
   border: none;
-  margin-right: 5px;
+  margin-right: .5rem;
   color: var(--midnightBlue);
-  border-radius: 5px;
+  border-radius: .5rem;
 }
 #actionContainer input:focus {
   outline: none !important;
@@ -107,11 +107,11 @@
 
 #actionContainer button {
   border: none;
-  border-radius: 5px;
+  border-radius: .5rem;
   font-size: 12px;
   cursor: pointer;
   color: var(--clouds);
-  padding: 10px;
+  padding: .75rem;
 }
 
 #executeBtn{
@@ -149,10 +149,9 @@
   align-items: center;
   justify-content: space-between;
   border: 1px dashed var(--silver);
-  border-radius: 5px;
-  margin: 5px;
-  margin: 10px;
-  padding: 5px;
+  border-radius: .25rem;
+  margin: .70rem;
+  padding: .25rem;
 }
 
 .image-wrapper {
@@ -189,10 +188,10 @@
 
 .download-button {
   background-color: var(--emerald);
-  padding: 10px;
+  padding: .75rem;
   font-size: 0.75rem;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: .5rem;
   animation: 1s;
   color: var(--clouds);
   margin-bottom: 0.5rem;
