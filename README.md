@@ -8,4 +8,3 @@ See Live : https://ayhan.github.io/image-resizer
 
 # Source
 Colors: https://flatuicolors.com/palette/defo
->>>>>>> Stashed changes
