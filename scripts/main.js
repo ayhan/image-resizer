@@ -29,14 +29,13 @@ const app = {
             reader.onloadend = function () {
                 let elems = document.createElement('div');
                 elems.classList.add('image-content');
-                elems.setAttribute('onclick', 'app.actions.imageDelete(this)')
-                elems.innerHTML = `<img src="${reader.result}">`;
-                document.getElementById('uploadedImage').append(elems);
-                app.selector.actionContainer.classList.remove('d-none');
+                elems.innerHTML = `<div class="image-wrapper"><img alt="${file.name}" src="${reader.result}"><span onclick="app.actions.imageDelete(this)">X</span></div>`;
+                app.selector.uploadedImages.append(elems);
+                app.selector.actionContainer.classList.remove('d-none')
             }
         },
-        imageDelete: function(scope) {
-            scope.remove();
+        imageDelete: function (scope) {
+            scope.parentNode.remove();
             app.selector.uploadedImages.innerHTML == '' && app.selector.actionContainer.classList.add('d-none');
         },
         preventDefaults: function (e) {
@@ -80,7 +79,14 @@ const app = {
 
             images.forEach(item => {
                 app.actions.resizeImages(item.getAttribute('src'), width, height).then((result) => {
+                    let img = document.createElement('a');
+                    img.innerHTML = ``;
+                    img.setAttribute('href', result);
+                    img.setAttribute('download', item.getAttribute('alt'));
+                    img.innerHTML = 'İndir';
+                    item.parentNode.parentNode.append(img);
                     console.log(result);
+
                 });
             })
         }
@@ -92,14 +98,14 @@ const app = {
             app.selector.dropArea.addEventListener(eventName, app.actions.preventDefaults, false)
             document.body.addEventListener(eventName, app.actions.preventDefaults, false)
         })
-    
-        ;['dragenter', 'dragover'].forEach(eventName => {
-            app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
-        })
-    
-        ;['dragleave', 'drop'].forEach(eventName => {
-            app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
-        })
+
+            ;['dragenter', 'dragover'].forEach(eventName => {
+                app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
+            })
+
+            ;['dragleave', 'drop'].forEach(eventName => {
+                app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
+            })
     }
 }
 

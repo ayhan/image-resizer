@@ -63,6 +63,7 @@
   margin-top: 10px;
   max-height: 750px;
   overflow-y: auto;
+  display: flex;
 }
 
 #uploadedImage img {
@@ -107,27 +108,34 @@
 }
 .image-content {
   display: inline-block;
-  position: relative;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.image-content img {
+.image-wrapper {
+  position: relative;
+}
+.image-wrapper img {
   transition: 1s;
 }
-.image-content:hover img {
+.image-wrapper:hover img {
   filter: blur(2px);
 }
-.image-content:hover::after{
-  content: 'X';
-  color: white;
+.image-wrapper span {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: white;
   font-weight: bold;
   font-size: 1.5rem;
   background: #454545;
   padding: 1rem;
   border-radius: 50%;
   line-height: 1rem;
-  z-index: 1;
+}
+.image-wrapper:hover span{
+  display: block;
 }
