@@ -72,8 +72,8 @@ const app = {
             var width = app.selector.widthValue.value || 400;
             var height = app.selector.heightValue.value || 400;
 
-            images.map((x) => {
-                app.actions.resizeImages(x.getAttribute('src'), width, height).then((result) => {
+            images.forEach(item => {
+                app.actions.resizeImages(item.getAttribute('src'), width, height).then((result) => {
                     console.log(result);
                 });
             })
