@@ -29,11 +29,15 @@ const app = {
             reader.onloadend = function () {
                 let elems = document.createElement('div');
                 elems.classList.add('image-content');
-                elems.setAttribute('onclick', 'this.remove()')
+                elems.setAttribute('onclick', 'app.actions.imageDelete(this)')
                 elems.innerHTML = `<img src="${reader.result}">`;
                 document.getElementById('uploadedImage').append(elems);
                 app.selector.actionContainer.classList.remove('d-none');
             }
+        },
+        imageDelete: function(scope) {
+            scope.remove();
+            app.selector.uploadedImages.innerHTML == '' && app.selector.actionContainer.classList.add('d-none');
         },
         preventDefaults: function (e) {
             e.preventDefault()
