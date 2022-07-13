@@ -27,10 +27,8 @@ const app = {
             let reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onloadend = function () {
-                let elems = document.createElement('div');
-                elems.classList.add('image-content');
-                elems.innerHTML = `<div class="image-wrapper"><img alt="${file.name}" src="${reader.result}"><span onclick="app.actions.imageDelete(this)">X</span></div>`;
-                app.selector.uploadedImages.append(elems);
+                let elems = `<div class="image-content"><div class="image-wrapper"><img alt="${file.name}" src="${reader.result}"><span onclick="app.actions.imageDelete(this)">X</span></div></div>`;
+                app.selector.uploadedImages.insertAdjacentHTML("beforeend", elems);
                 app.selector.actionContainer.classList.remove('d-none')
             }
         },
@@ -79,14 +77,8 @@ const app = {
 
             images.forEach(item => {
                 app.actions.resizeImages(item.getAttribute('src'), width, height).then((result) => {
-                    let img = document.createElement('a');
-                    img.innerHTML = ``;
-                    img.setAttribute('href', result);
-                    img.setAttribute('download', item.getAttribute('alt'));
-                    img.innerHTML = 'İndir';
-                    item.parentNode.parentNode.append(img);
-                    console.log(result);
-
+                    let downloadBtn = `<a href="${result}" download="${item.getAttribute('alt')}">Download</a>`;
+                    item.parentNode.insertAdjacentHTML("afterend", downloadBtn);
                 });
             })
         }

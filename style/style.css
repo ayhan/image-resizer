@@ -107,11 +107,11 @@
   background-color: #454545;
 }
 .image-content {
-  display: inline-block;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 .image-wrapper {
   position: relative;
