@@ -139,3 +139,17 @@
 .image-wrapper:hover span{
   display: block;
 }
+
+.download-button {
+  background-color: #badc58;
+  padding: 10px;
+  font-size: 0.75rem;
+  text-decoration: none;
+  border-radius: 5px;
+  animation: 1s;
+  color: #454545
+}
+.download-button:hover {
+  color: #fff;
+  background: #6ab04c;
+}

@@ -77,7 +77,7 @@ const app = {
 
             images.forEach(item => {
                 app.actions.resizeImages(item.getAttribute('src'), width, height).then((result) => {
-                    let downloadBtn = `<a href="${result}" download="${item.getAttribute('alt')}">Download</a>`;
+                    let downloadBtn = `<a class="download-button" href="${result}" download="${item.getAttribute('alt')}">Download</a>`;
                     item.parentNode.insertAdjacentHTML("afterend", downloadBtn);
                 });
             })
