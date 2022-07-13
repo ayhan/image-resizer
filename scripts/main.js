@@ -27,10 +27,12 @@ const app = {
             let reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onloadend = function () {
-                let img = document.createElement('img')
-                img.src = reader.result
-                document.getElementById('uploadedImage').appendChild(img)
-                actionContainer.classList.remove('d-none')
+                let elems = document.createElement('div');
+                elems.classList.add('image-content');
+                elems.setAttribute('onclick', 'this.remove()')
+                elems.innerHTML = `<img src="${reader.result}">`;
+                document.getElementById('uploadedImage').append(elems);
+                app.selector.actionContainer.classList.remove('d-none');
             }
         },
         preventDefaults: function (e) {
@@ -67,7 +69,7 @@ const app = {
                 }
             })
         },
-        execute: function() {
+        execute: function () {
             var images = Array.from(app.selector.uploadedImages.querySelectorAll('img'));
             var width = app.selector.widthValue.value || 400;
             var height = app.selector.heightValue.value || 400;
