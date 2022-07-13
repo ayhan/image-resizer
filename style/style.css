@@ -105,3 +105,31 @@
 #actionContainer button:hover {
   background-color: #454545;
 }
+.image-content {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.image-content img {
+  transition: 1s;
+}
+.image-content:hover img {
+  filter: blur(2px);
+}
+.image-content:hover span {
+  display: block;
+  background: #454545;
+  padding: 1rem;
+  border-radius: 50%;
+  line-height: 1rem;
+}
+.image-content span {
+  display: none;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
