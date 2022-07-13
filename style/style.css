@@ -88,3 +88,20 @@
   outline: none;
   margin-right: 5px;
 }
+
+#actionContainer button {
+  background-color: #aaa;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+}
+#actionContainer button:active {
+  background-color: #454545;
+  transform: scale(1.1);
+}
+#actionContainer button:hover {
+  background-color: #454545;
+}
