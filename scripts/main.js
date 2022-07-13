@@ -86,21 +86,21 @@ const app = {
         }
     },
     init: function () {
-        app.selector.dropArea.addEventListener('drop', app.actions.handleDrop, false)
+        app.selector.dropArea.addEventListener('drop', app.actions.handleDrop, false);
+
+        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            app.selector.dropArea.addEventListener(eventName, app.actions.preventDefaults, false)
+            document.body.addEventListener(eventName, app.actions.preventDefaults, false)
+        })
+    
+        ;['dragenter', 'dragover'].forEach(eventName => {
+            app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
+        })
+    
+        ;['dragleave', 'drop'].forEach(eventName => {
+            app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
+        })
     }
 }
-
-    ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        app.selector.dropArea.addEventListener(eventName, app.actions.preventDefaults, false)
-        document.body.addEventListener(eventName, app.actions.preventDefaults, false)
-    })
-
-    ;['dragenter', 'dragover'].forEach(eventName => {
-        app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
-    })
-
-    ;['dragleave', 'drop'].forEach(eventName => {
-        app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
-    })
 
 app.init();
