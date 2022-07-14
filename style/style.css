@@ -37,7 +37,7 @@
 }
 
 .container {
-  width: 920px;
+  max-width: 920px;
   margin: auto;
   padding: 1.25rem;
   border-radius: 10px;
@@ -209,4 +209,16 @@
   text-align: center;
   margin-top: 4rem;
   color: var(--wetAsphalt);
+}
+
+@media only screen and (max-width: 620px) {
+  #actionContainer .execute-section {
+    width: 50%;
+  }
+  #actionContainer input, #actionContainer button {
+    margin: .25rem;
+  }
+  #uploadedImage {
+    justify-content: center;
+  }
 }
