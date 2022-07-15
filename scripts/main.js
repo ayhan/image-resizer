@@ -36,7 +36,7 @@ const app = {
             scope.parentNode.parentNode.remove();
             app.selector.uploadedImages.innerHTML == '' && app.selector.actionContainer.classList.add('d-none');
         },
-        clearAll: function() {
+        clearAll: function () {
             app.selector.uploadedImages.innerHTML = '';
             app.selector.actionContainer.classList.add('d-none')
         },
@@ -44,28 +44,28 @@ const app = {
             e.preventDefault()
             e.stopPropagation()
         },
-        resizeImages: function (base64Str, maxWidth = 500, maxHeight = 500) {
+        aspectRatio: function (w, h, mw, mh) {
+            var ratio = w / h;
+            if (mh * ratio < mw) {
+                return [mw, mw / ratio];
+            } else {
+                return [mh * ratio, mh];
+            }
+        },
+        resizeImages: function (base64Str, maxWidth, maxHeight) {
             return new Promise((resolve) => {
                 let img = new Image()
                 img.src = base64Str
                 img.onload = () => {
                     let canvas = document.createElement('canvas')
-                    const MAX_WIDTH = maxWidth
-                    const MAX_HEIGHT = maxHeight
                     let width = img.width
                     let height = img.height
 
-                    if (width > height) {
-                        if (width > MAX_WIDTH) {
-                            height *= MAX_WIDTH / width
-                            width = MAX_WIDTH
-                        }
-                    } else {
-                        if (height > MAX_HEIGHT) {
-                            width *= MAX_HEIGHT / height
-                            height = MAX_HEIGHT
-                        }
-                    }
+                    var newSize = app.actions.aspectRatio(width, height, maxWidth, maxHeight);
+
+                    width = newSize[0];
+                    height = newSize[1];
+
                     canvas.width = width
                     canvas.height = height
                     let ctx = canvas.getContext('2d')
@@ -106,3 +106,11 @@ const app = {
 }
 
 app.init();
+
+
+// function gcd(a, b) {
+//     return (b == 0) ? a : gcd(b, a % b);
+// }
+// function ratio(x, y) {
+//     c = gcd(x, y); return `${x / c}:${y / c}`
+// }
