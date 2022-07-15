@@ -145,7 +145,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   border: 1px dashed var(--silver);
   border-radius: .25rem;
   margin: .70rem;
