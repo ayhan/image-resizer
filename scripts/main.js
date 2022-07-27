@@ -7,77 +7,77 @@ const app = {
         heightValue: document.getElementById("heightValue")
     },
     actions: {
-        highlightAdd: function () {
+        highlightAdd: () => {
             app.selector.dropArea.classList.add('highlight')
         },
-        highlightRemove: function () {
+        highlightRemove: () => {
             app.selector.dropArea.classList.remove('highlight')
         },
-        handleFiles: function (files) {
+        handleFiles: (files) => {
             files = [...files]
             files.forEach(app.actions.previewFile)
         },
-        handleDrop: function (e) {
-            var dt = e.dataTransfer
-            var files = dt.files
+        handleDrop: (e) => {
+            let dt = e.dataTransfer
+            let files = dt.files
 
             app.actions.handleFiles(files)
         },
-        previewFile: function (file) {
+        previewFile: (file) => {
             let reader = new FileReader()
             reader.readAsDataURL(file)
-            reader.onloadend = function () {
+            reader.onloadend = ()  => {
                 let elems = `<div class="image-content"><div class="image-wrapper"><img alt="${file.name}" src="${reader.result}"><span onclick="app.actions.imageDelete(this)">X</span></div></div>`;
                 app.selector.uploadedImages.insertAdjacentHTML("beforeend", elems);
                 app.selector.actionContainer.classList.remove('d-none')
             }
         },
-        imageDelete: function (scope) {
+        imageDelete: (scope) => {
             scope.parentNode.parentNode.remove();
             app.selector.uploadedImages.innerHTML == '' && app.selector.actionContainer.classList.add('d-none');
         },
-        clearAll: function () {
+        clearAll: () => {
             app.selector.uploadedImages.innerHTML = '';
             app.selector.actionContainer.classList.add('d-none')
         },
-        preventDefaults: function (e) {
+        preventDefaults: (e) => {
             e.preventDefault()
             e.stopPropagation()
         },
-        aspectRatio: function (w, h, mw, mh) {
-            var ratio = w / h;
+        aspectRatio: (w, h, mw, mh) => {
+            let ratio = w / h;
             if (mh * ratio < mw) {
                 return [mw, mw / ratio];
             } else {
                 return [mh * ratio, mh];
             }
         },
-        resizeImages: function (base64Str, maxWidth, maxHeight) {
+        resizeImages: (base64Str, maxWidth, maxHeight) => {
             return new Promise((resolve) => {
-                let img = new Image()
+                const img = new Image()
                 img.src = base64Str
                 img.onload = () => {
-                    let canvas = document.createElement('canvas')
+                    const canvas = document.createElement('canvas')
                     let width = img.width
                     let height = img.height
 
-                    var newSize = app.actions.aspectRatio(width, height, maxWidth, maxHeight);
+                    const newSize = app.actions.aspectRatio(width, height, maxWidth, maxHeight);
 
                     width = newSize[0];
                     height = newSize[1];
 
                     canvas.width = width
                     canvas.height = height
-                    let ctx = canvas.getContext('2d')
+                    const ctx = canvas.getContext('2d')
                     ctx.drawImage(img, 0, 0, width, height)
                     resolve(canvas.toDataURL())
                 }
             })
         },
-        execute: function () {
-            var images = Array.from(app.selector.uploadedImages.querySelectorAll('img'));
-            var width = app.selector.widthValue.value || 400;
-            var height = app.selector.heightValue.value || 400;
+        execute: () => {
+            const images = Array.from(app.selector.uploadedImages.querySelectorAll('img'));
+            const width = app.selector.widthValue.value || 400;
+            const height = app.selector.heightValue.value || 400;
 
             images.forEach(item => {
                 app.actions.resizeImages(item.getAttribute('src'), width, height).then((result) => {
@@ -87,7 +87,7 @@ const app = {
             })
         }
     },
-    init: function () {
+    init: () => {
         app.selector.dropArea.addEventListener('drop', app.actions.handleDrop, false);
 
         ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -95,13 +95,13 @@ const app = {
             document.body.addEventListener(eventName, app.actions.preventDefaults, false)
         })
 
-            ;['dragenter', 'dragover'].forEach(eventName => {
-                app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
-            })
+        ;['dragenter', 'dragover'].forEach(eventName => {
+            app.selector.dropArea.addEventListener(eventName, app.actions.highlightAdd, false)
+        })
 
-            ;['dragleave', 'drop'].forEach(eventName => {
-                app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
-            })
+        ;['dragleave', 'drop'].forEach(eventName => {
+            app.selector.dropArea.addEventListener(eventName, app.actions.highlightRemove, false)
+        })
     }
 }
 
